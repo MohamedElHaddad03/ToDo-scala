@@ -29,7 +29,7 @@ object Main extends IOApp {
 
         // ✅ IO context: start the server
         _ <- BlazeServerBuilder[IO]
-          .bindHttp(8080, "localhost")
+          .bindHttp(8080, "0.0.0.0")
           .withHttpApp(httpApp)
           .serve
           .compile

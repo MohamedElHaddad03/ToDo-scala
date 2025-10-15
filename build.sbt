@@ -1,4 +1,4 @@
-ThisBuild / scalaVersion := "2.13.16"
+ThisBuild / scalaVersion := "2.12.20"
 
 val http4sVersion = "0.23.12"
 lazy val root = (project in file("."))
@@ -26,3 +26,8 @@ lazy val root = (project in file("."))
       "org.http4s" %% "http4s-client" % http4sVersion % Test
     )
   )
+
+assemblyMergeStrategy in assembly := {
+  case PathList("META-INF", xs @ _*) => MergeStrategy.discard
+  case x => MergeStrategy.first
+}
